@@ -8,11 +8,9 @@ import { startDb } from "./src/config/database.js";
 const app = express();
 const PORT = process.env.PORT;
 
-// Conexion con la base de datos
-startDb();
-
-// Inicio del servidor
-app.listen(PORT, () => {
+// Inicio del servidor y conexion con la base de datos
+app.listen(PORT, async () => {
+    await startDb();
     console.log(`SERVIDOR CORRIENDO EN: http://localhost:${PORT}`)
 });
 
