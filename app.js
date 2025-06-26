@@ -9,11 +9,12 @@ import characterRouter from "./src/routes/characters.routes.js";
 const app = express();
 const PORT = process.env.PORT;
 
-
+app.use(express.json());
 app.use("/characters", characterRouter);
+
 // Inicio del servidor y conexion con la base de datos
 app.listen(PORT, async () => {
     await startDb();
-    console.log(`SERVIDOR CORRIENDO EN: http://localhost:${PORT}`)
+    console.log(`SERVIDOR CORRIENDO EN: http://localhost:${PORT}/characters`)
 });
 
