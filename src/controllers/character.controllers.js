@@ -129,7 +129,8 @@ export const updateCharacter = async (req, res) => {
         if (updated > 0) return res.status(200).json({ message: "El personaje fue actualizado correctamente" });
         return res.status(404).json({ message: "Personaje no encontrado" });
     } catch (err) {
-        res.status(500), json({ error: err.message })
+        console.log(err)
+        res.status(500).json({ error: err.message })
     }
 };
 
